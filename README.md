@@ -89,9 +89,7 @@ This will display the following instructions:
 To run TWN-Align with default settings, use the following command:
 
 ```bash
-python TWN-FS-open-source.py \
-    -f ./DATA/test_fragments \
-    -r ./DATA/TWN-Region/CHK1_1NVR_R4/TWN_Region_1.sdf
+python TWN-FS-open-source.py -f ./DATA/test_fragments -r ./DATA/TWN-Region/CHK1_1NVR_R4/TWN_Region_1.sdf
 ```
 
 After completion, an output directory such as the following will be created:
