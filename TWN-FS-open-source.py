@@ -581,27 +581,40 @@ def log_report(logger, output_dir, similarity_key="similarity"):
 
     for sdf_file in sdf_files:
         sdf_path = os.path.join(output_dir, sdf_file)
-        suppl = Chem.SDMolSupplier(sdf_path, removeHs=False)
 
-        for i, mol in enumerate(suppl):
-            if mol is None:
+        with open(sdf_path, "r", encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()
+
+        mol_name = None
+        similarity = "NA"
+        in_prop = False
+
+        for i, line in enumerate(lines):
+            line = line.strip()
+
+            # molecule name: first line of mol block
+            if mol_name is None and line:
+                mol_name = line
+
+            # property header
+            if line == f"> <{similarity_key}>":
+                in_prop = True
                 continue
 
-            total_mol += 1
+            # property value
+            if in_prop:
+                similarity = line
+                in_prop = False
 
-            mol_id = (
-                mol.GetProp("_Name")
-                if mol.HasProp("_Name")
-                else f"mol_{i+1}"
-            )
+            # end of molecule
+            if line == "$$$$":
+                total_mol += 1
+                logger.info(f"{sdf_file}\t{mol_name}\t{similarity}")
 
-            similarity = (
-                mol.GetProp(similarity_key)
-                if mol.HasProp(similarity_key)
-                else "NA"
-            )
-
-            logger.info(f"{sdf_file}\t{mol_id}\t{similarity}")
+                # reset for next molecule
+                mol_name = None
+                similarity = "NA"
+                in_prop = False
 
     logger.info("-" * 60)
     logger.info(f"Total molecules reported : {total_mol}")
@@ -626,7 +639,7 @@ if __name__ == "__main__":
                        \ TWN \  --Screening--  |   ||
                         *-----*  -using TWNs-  \\  /
                         
-                        Copyright © Chemo-
+                      Copyright (c) Chemo-
                                     Informatics &
                                     Modeling Laboratory
                                     CNU Korea 
