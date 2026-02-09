@@ -3,6 +3,7 @@
 **TWN-Align: A Topological Water Network–Guided Molecular Alignment Method for Fragment Screening**
 
 This repository provides the source code for **TWN-Align**, a fragment screening and alignment framework guided by **Topological Water Networks (TWNs)**. The overall workflow of TWN-Align is summarized below.
+![image](https://github.com/user-attachments/assets/754e575a-7e7d-436a-b7c5-5fdc89495e1c)
 
 ---
 
