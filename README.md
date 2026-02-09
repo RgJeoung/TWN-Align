@@ -23,12 +23,13 @@ conda activate TWN-FS-open-source
 
 To run TWN-Align, the following preset files are required:
 
-1. **TWN-Region**
-2. **TWN-Pattern**
-3. **TWN-pharma**
-4. **Fragment files**
+1. **trajectory**
+2. **TWN-Region**
+3. **TWN-Pattern**
+4. **TWN-pharma**
+5. **Fragment files**
 
-The **TWN-Region** and **TWN-Pattern** files can be generated using the same procedure as in the **TWN-FG** method:
+The **trajectory**, **TWN-Region** and **TWN-Pattern** files can be generated using the same procedure as in the **TWN-FG** method:
 
 [https://github.com/RgJeoung/TWN-FG](https://github.com/RgJeoung/TWN-FG)
 
