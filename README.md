@@ -113,6 +113,7 @@ We recommend visualizing the aligned fragment files together with the correspond
 The `TWN-FS.log` file includes the execution settings as well as a brief screening report.
 
 For a detailed interpretation of the output files and methodology, please refer to our published paper.
+[https://www.sciencedirect.com/science/article/pii/S2095177926002352](https://www.sciencedirect.com/science/article/pii/S2095177926002352).
 
 ---
 
